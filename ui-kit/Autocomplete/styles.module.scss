@@ -1,0 +1,43 @@
+.wrapper {
+  position: relative;
+  .optionsContainer {
+    position: absolute;
+    width: 100%;
+    z-index: var(--zindex300);
+    background-color: var(--primaryBg);
+    top: 102%;
+    box-shadow: 0px 6px 24px var(--boxShadow);
+    border-radius: 4px;
+    max-height: 180px;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 10px;
+      &:hover {
+        background: rgba(0, 0, 0, 0.55);
+      }
+    }
+    .options {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li {
+        padding: 0.75rem;
+        &.option {
+          cursor: pointer;
+          &:hover {
+            background-color: var(--primaryClr60);
+            color: var(--subText100);
+          }
+          &.active {
+            background-color: var(--primaryClr);
+            color: var(--subText100);
+          }
+        }
+      }
+    }
+  }
+}

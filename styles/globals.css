@@ -1,9 +1,72 @@
+:root {
+  font-family: "Be Vietnam Pro", sans-serif;
+}
+html {
+  --primaryClr: #00d09c;
+  --primaryClr60: #66e3c4;
+  --primaryClr10: #e5faf5;
+  --secondaryClr: #5367ff;
+  --secondaryClr130: #98a4ff;
+  --secondaryClr60: #98a4ff;
+  --secondaryClr30: #eef0ff;
+  --customYellow: #ffb61b;
+  --customYellow10: #fff5e0;
+  --customYellow05: rgba(255, 182, 27, 0.05);
+  --customRed: #eb5b3c;
+  --customRed10: #fae9e5;
+  --customRed05: rgba(235, 91, 60, 0.05);
+  --border: #ecedef;
+  --iconLight: #b0b2ba;
+  --iconMedium: #dddee1;
+  --iconStrong: #ecedef;
+  --boxShadow: rgba(0, 0, 0, 0.1);
+  --text130: #44475b;
+  --text: #44475b;
+  --subText: #7c7e8c;
+  --subText50: #b0b2ba;
+  --subText70: #ecedef;
+  --subText100: #fff;
+  --primaryBg: #fff;
+  --secondaryBg: #fff;
+  --tertiaryBg: #ecedef;
+  --quaternaryBg: #f6f6f7;
+  --preloaderBg: #f6f6f7;
+  --rippleNormal: rgba(0, 0, 0, 0.1);
+  --constantWhite: #fff;
+  --constantSecondaryClr10: #f6f6f7;
+  --cardBackground: #fff;
+  --zindex10001: 10001;
+  --zindex900: 900;
+  --zindex800: 800;
+  --zindex700: 700;
+  --zindex600: 600;
+  --zindex500: 500;
+  --zindex400: 400;
+  --zindex300: 300;
+  --zindex1: -1;
+}
+
+html,
+html[data-theme="dark"] {
+  --secondaryClr150: #1e2232;
+  --constantCustomYellow150: #d2ab66;
+  --constantText: #44475b;
+  --constantText120: #191c27;
+  --constantSubText10: #636464;
+  --constantTransparent: transparent;
+  --constantHalfTransparent: rgba(0, 0, 0, 0.5);
+  --constantSecondaryClr180: #2a2a2a;
+}
+
 html,
 body {
-  padding: 0;
+  background: var(--primaryBg) !important;
+  color: var(--text) !important;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  padding: 0;
+  font-family: Roboto, system-ui;
+  min-width: 320px;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -13,14 +76,4 @@ a {
 
 * {
   box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
 }

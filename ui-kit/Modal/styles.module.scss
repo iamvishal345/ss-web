@@ -1,0 +1,32 @@
+@import "../../styles/responsive";
+.backDrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--constantHalfTransparent);
+  display: grid;
+  place-items: center;
+  z-index: 9;
+  @include for-phone-only {
+    overflow-y: auto;
+  }
+}
+.modalWrapper {
+  position: relative;
+  background-color: var(--primaryBg);
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  @include for-phone-only {
+    padding: 1rem 0;
+  }
+  .headerWrapper {
+    .close {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+.wrapper {
+  display: flex;
+  .step {
+    display: flex;
+    align-items: flex-start;
+    .item {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      .iconWrapper {
+        display: flex;
+        align-items: center;
+        .icon {
+          width: 3rem;
+          height: 3rem;
+          border: 2px solid var(--constantSecondaryClr180);
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .bar {
+          border: 1px solid var(--constantSecondaryClr180);
+        }
+      }
+
+      &.activeStep {
+        .iconWrapper {
+          .icon {
+            border: none;
+            background-color: var(--secondaryClr);
+            i {
+              color: var(--subText70);
+            }
+          }
+          .bar {
+            border-color: var(--secondaryClr);
+          }
+        }
+      }
+    }
+  }
+}

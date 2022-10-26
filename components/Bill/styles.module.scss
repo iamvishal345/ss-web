@@ -1,0 +1,40 @@
+.itemsList {
+  display: grid;
+  flex: 1 1 auto;
+  overflow: auto;
+  grid-template-columns: 35% 27% 25% 13%;
+  align-content: start;
+  &.removeLast {
+    grid-template-columns: 43% 31% 26%;
+  }
+  .heading {
+    font-weight: 600;
+  }
+  p {
+    margin: 0.5rem 0;
+  }
+}
+
+.bottomContainer {
+  padding-top: 0.5rem;
+}
+
+.fullSpan {
+  grid-column: 1 / span 4;
+}
+
+.noItems {
+  place-self: center;
+  grid-column: 1/5;
+  margin-top: 15rem;
+  height: 100%;
+  font-size: 1.5rem;
+}
+
+.modalHeader {
+  color: orange;
+  font-size: 1.25rem;
+  .modalIcon {
+    transform: scale(var(--ggs, 1.5));
+  }
+}

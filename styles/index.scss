@@ -1,0 +1,20 @@
+@import "responsive";
+@import "custom";
+@import "common";
+section.container {
+  padding: 0 2rem;
+  margin-bottom: 2rem;
+  @include for-tablet-portrait {
+    padding: 0 1rem;
+  }
+}
+
+main {
+  min-height: 100vh;
+}
+
+section,
+header,
+main {
+  width: 100%;
+}

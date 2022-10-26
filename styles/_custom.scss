@@ -1,0 +1,22 @@
+.customPhoneInput {
+  padding: 1rem 0.75rem 1rem 58px !important;
+}
+
+.defaultMask {
+  position: fixed;
+  background: var(--rippleNormal);
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: var(--zindex10001);
+  animation: fadein 0.1s ease;
+}
+
+.react-tel-input {
+  width: auto !important;
+}
+
+.h-100 {
+  height: 100%;
+}

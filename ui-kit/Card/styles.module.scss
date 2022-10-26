@@ -1,0 +1,23 @@
+.card {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .imageWrapper {
+    span {
+      border-radius: 4px;
+    }
+  }
+  .cardHeader {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text130);
+    margin-top: 1rem;
+  }
+  .cardSubheader {
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    color: var(--subText);
+  }
+}
