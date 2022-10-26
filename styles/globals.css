@@ -60,7 +60,6 @@ html[data-theme="dark"] {
 
 html {
   background-color: #292d4a !important;
-  margin: auto;
 }
 
 html,
@@ -76,6 +75,7 @@ body {
   background: var(--primaryBg) !important;
   color: var(--text) !important;
   max-width: 30rem;
+  margin: auto;
 }
 
 a {
