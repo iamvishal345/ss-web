@@ -58,7 +58,7 @@ export default function Login() {
       <main className="d-flex align-items-center">
         <section className="container">
           <form className="flex-grow-1" onSubmit={handleSubmit(onSubmit)}>
-            <h1 className="text-center">Login In</h1>
+            <h1 className="text-center">Log In</h1>
             <Input
               inputProps={{
                 ...register("email", {
