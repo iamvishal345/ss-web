@@ -60,6 +60,7 @@ html[data-theme="dark"] {
 
 html {
   background-color: #292d4a !important;
+  margin: auto;
 }
 
 html,
