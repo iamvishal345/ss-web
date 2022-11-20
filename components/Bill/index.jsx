@@ -73,11 +73,11 @@ export const Bill = ({ isActive, onClose, data }) => {
       items,
       total_amount: getTotalAmount(),
       paid_amount:
-        saveModal === "freeze" ? parseInt(getValues("paidAmount")) : 0,
+        saveModal === "freeze" ? parseFloat(getValues("paidAmount")) : 0,
       customer_id: data.id,
     };
     const billQuery = supabaseClient.from("bills");
-    if (data.bill.id) {
+    if (data.bill?.id) {
       billQuery.update(billObj).eq("id", data.bill.id);
     } else {
       billQuery.insert(billObj);
@@ -87,15 +87,14 @@ export const Bill = ({ isActive, onClose, data }) => {
     if (!error) {
       if (
         saveModal === "freeze" &&
-        getTotalAmount() !== parseInt(getValues("paidAmount"))
+        getTotalAmount() !== parseFloat(getValues("paidAmount"))
       ) {
-        const balance = getTotalAmount() - parseInt(getValues("paidAmount"));
+        const balance = getTotalAmount() - parseFloat(getValues("paidAmount"));
         const { data: customerData, error: customerError } =
           await supabaseClient
             .from("customers")
             .select("balance,id")
             .eq("id", data.id);
-        console.log(customerData, customerError);
         const finalBalance = customerData[0].balance - balance;
         const { data: saveData, error } = await supabaseClient
           .from("customers")
@@ -111,7 +110,6 @@ export const Bill = ({ isActive, onClose, data }) => {
       }
     } else {
       showNotification(billData, error);
-      onClose();
     }
   };
 
@@ -156,7 +154,7 @@ export const Bill = ({ isActive, onClose, data }) => {
             <React.Fragment key={id}>
               <p>{name}</p>
               <p>{quantity + " X " + unitPrice}</p>
-              <p>₹ {quantity * unitPrice}</p>
+              <p>₹ {(quantity * unitPrice).toFixed(2)}</p>
               {!data?.bill?.is_freezed && (
                 <Button
                   className="align-self-center"
@@ -173,6 +171,12 @@ export const Bill = ({ isActive, onClose, data }) => {
             </React.Fragment>
           ))}
         </div>
+        {items.length > 0 && (
+          <div className="ms-auto me-1 font-size-sm ">
+            <p className="font-weight-bold mb-1">Grand Total</p>
+            <p className="mt-1">₹ {getTotalAmount().toFixed(2)}</p>
+          </div>
+        )}
         {!data?.bill?.is_freezed && (
           <div className={styles.bottomContainer}>
             <div className="d-flex col-gap-3">
@@ -211,6 +215,7 @@ export const Bill = ({ isActive, onClose, data }) => {
                   inputProps={{
                     ...register("quantity", { required }),
                     type: "number",
+                    step: "0.001",
                     placeholder: "Quantity",
                   }}
                   error={errors.quantity}
@@ -219,7 +224,8 @@ export const Bill = ({ isActive, onClose, data }) => {
                 <Input
                   inputProps={{
                     ...register("unitPrice", { required }),
-                    type: "text",
+                    type: "number",
+                    step: "0.001",
                     placeholder: "Per Unit Price",
                   }}
                   error={errors.unitPrice}
@@ -235,11 +241,11 @@ export const Bill = ({ isActive, onClose, data }) => {
             <div className="d-flex flex-column">
               <div className="d-flex justify-content-between font-size-lg">
                 <p className="mb-1 mt-1">Total Amount:</p>
-                <p className="mb-3 mt-1">₹ {data.bill.total_amount}</p>
+                <p className="mb-3 mt-1">₹ {data.bill?.total_amount}</p>
               </div>
               <div className="d-flex justify-content-between font-size-lg">
                 <p className="mb-1 mt-1">Paid Amount:</p>
-                <p className="mb-3 mt-1">₹ {data.bill.paid_amount}</p>
+                <p className="mb-3 mt-1">₹ {data.bill?.paid_amount}</p>
               </div>
             </div>
           </div>

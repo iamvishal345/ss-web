@@ -97,7 +97,7 @@ export const Customer = ({ customerId }) => {
               <h1 className="mb-0 mt-2 font-size-xl">{customer.name}</h1>
               <p className="mb-0">{customer.description}</p>
               <p className="mb-0 mt-2 font-size-lg font-weight-bold">
-                Credit Balance: ₹ {customer.balance}
+                Credit Balance: ₹ {parseFloat(customer.balance).toFixed(2)}
               </p>
             </>
           }
@@ -160,13 +160,13 @@ export const Customer = ({ customerId }) => {
                   <div className="d-flex col-gap-3 justify-content-between">
                     <p className="my-1 font-size-sm">Total Amount</p>
                     <p className="me-2 my-1 font-size-sm">
-                      ₹ {bill.total_amount}
+                      ₹ {parseFloat(bill.total_amount).toFixed(2)}
                     </p>
                   </div>
                   <div className="d-flex col-gap-3 justify-content-between">
                     <p className="my-1 font-size-sm">Paid Amount</p>
                     <p className="me-2 my-1 font-size-sm">
-                      ₹ {bill.paid_amount}
+                      ₹ {parseFloat(bill.paid_amount).toFixed(2)}
                     </p>
                   </div>
                 </li>
